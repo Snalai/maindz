@@ -1,7 +1,7 @@
 package org.example.lesson6.HomeWork.Laptop1;
 
-
 import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         Laptop laptop1 = new Laptop(4, 250, "Windows", "Red");
@@ -22,17 +22,17 @@ public class Main {
     }
 
     /**
+     * @param laptops принемает множество ноутбуков
      * @apiNote •Подумать над структурой класса Ноутбук для магазина техники - выделить поля и методы. Реализовать в java.
      * • Создать множество ноутбуков.
      * • Написать метод, который будет запрашивать у пользователя критерий (или критерии) фильтрации и выведет ноутбуки, отвечающие фильтру. Критерии фильтрации можно хранить в Map. Например:
      * “Введите цифру, соответствующую необходимому критерию:
-     *  1 - ОЗУ
-     *  2 - Объем ЖД
-     *  3 - Операционная система
-     *  4 - Цвет …
+     * 1 - ОЗУ
+     * 2 - Объем ЖД
+     * 3 - Операционная система
+     * 4 - Цвет …
      * • Далее нужно запросить минимальные значения для указанных критериев - сохранить параметры фильтрации можно также в Map.
      * • Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
-     * @param laptops принемает множество ноутбуков
      */
     private static void zadanie(List<Laptop> laptops) {
         Scanner scanner = new Scanner(System.in);
@@ -48,49 +48,49 @@ public class Main {
                     """
             );
             cri = scanner.nextInt();
-                if (cri == 1) {
-                    System.out.println("Минимум сколько ОЗУ вы рассматриваете?");
-                    int ram = scanner.nextInt();
-                    for (Laptop laptop : laptops) {
-                        if (laptop.RAM >= ram) {
-                            System.out.println(laptop);
-                        } else {
-                            System.out.println("Нет в наличии ноутбука с таким колличеством ОЗУ");
-                            break;
-                        }
+            if (cri == 1) {
+                System.out.println("Минимум сколько ОЗУ вы рассматриваете?");
+                int ram = scanner.nextInt();
+                for (Laptop laptop : laptops) {
+                    if (laptop.RAM >= ram) {
+                        System.out.println(laptop);
+                    } else {
+                        System.out.println("Нет в наличии ноутбука с таким колличеством ОЗУ");
+                        break;
                     }
-                } else if (cri == 2) {
-                    System.out.println("Минимум сколько Объем ЖД вы рассматриваете?");
-                    int Hdc = scanner.nextInt();
-                    for (Laptop laptop : laptops) {
-                        if (laptop.Hdc >= Hdc) {
-                            System.out.println(laptop);
-                        } else {
-                            System.out.println("Нет в наличии ноутбука с таким колличеством Объеа ЖД");
-                            break;
-                        }
+                }
+            } else if (cri == 2) {
+                System.out.println("Минимум сколько Объем ЖД вы рассматриваете?");
+                int Hdc = scanner.nextInt();
+                for (Laptop laptop : laptops) {
+                    if (laptop.Hdc >= Hdc) {
+                        System.out.println(laptop);
+                    } else {
+                        System.out.println("Нет в наличии ноутбука с таким колличеством Объеа ЖД");
+                        break;
                     }
-                } else if (cri == 3) {
-                    System.out.println("Какую Операционную систему вы рассматриваете?");
-                    String opersys = scanner.next();
-                    for (int i = 0; i < laptops.size(); i++) {
-                        if (laptops.get(i).Opersys.contains(opersys)) {
-                            System.out.println(laptops.get(i));
-                            t++;
-                        } else if (!laptops.get(i).Opersys.contains(opersys) & t == 0 & i + 1 == laptops.size())
-                            System.out.println("Нет в наличии ноутбука с такой Операционной системой");
-                    }
-                } else if (cri == 4) {
-                    System.out.println("Какой Цвет вы рассматриваете?");
-                    String color = scanner.next();
-                    for (int i = 0; i < laptops.size(); i++) {
-                        if (laptops.get(i).Color.contains(color)) {
-                            System.out.println(laptops.get(i));
-                            t++;
-                        } else if (!laptops.get(i).Color.contains(color) & t == 0 & i + 1 == laptops.size())
-                            System.out.println("Нет в наличии ноутбука с таким Цветом");
-                    }
-                } else System.out.println("Вы не ввели цифру соответствующу какому либо критерию");
+                }
+            } else if (cri == 3) {
+                System.out.println("Какую Операционную систему вы рассматриваете?");
+                String opersys = scanner.next();
+                for (int i = 0; i < laptops.size(); i++) {
+                    if (laptops.get(i).Opersys.contains(opersys)) {
+                        System.out.println(laptops.get(i));
+                        t++;
+                    } else if (!laptops.get(i).Opersys.contains(opersys) & t == 0 & i + 1 == laptops.size())
+                        System.out.println("Нет в наличии ноутбука с такой Операционной системой");
+                }
+            } else if (cri == 4) {
+                System.out.println("Какой Цвет вы рассматриваете?");
+                String color = scanner.next();
+                for (int i = 0; i < laptops.size(); i++) {
+                    if (laptops.get(i).Color.contains(color)) {
+                        System.out.println(laptops.get(i));
+                        t++;
+                    } else if (!laptops.get(i).Color.contains(color) & t == 0 & i + 1 == laptops.size())
+                        System.out.println("Нет в наличии ноутбука с таким Цветом");
+                }
+            } else System.out.println("Вы не ввели цифру соответствующу какому либо критерию");
 
         }
     }
